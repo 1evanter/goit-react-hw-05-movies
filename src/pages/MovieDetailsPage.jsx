@@ -1,20 +1,41 @@
 import MovieDetails from "components/MovieDetails";
-import { Outlet, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Outlet, useParams } from "react-router-dom";
+import { fetchMovieById } from "api";
 
 const MovieDetailsPage = () => {
+    const { movieId } = useParams();
+    const [movieDetails, setMovieDetails] = useState({})
+
+useEffect(() => {
+    if (!movieId) {
+        return
+    }
+    async function getMoviesById() {
+try {
+    const movie = fetchMovieById(movieId);
+
+
+        if (movie.id) {
+            setMovieDetails(movie)
+        }
+
+} catch (error) {
+    console.log(error)
+}
+
+        
+ }
+    getMoviesById();
+}, [movieId])
+
+
+
     return (
 
         <div>
-           <MovieDetails/>
-            <ul>
-                Additional information
-                <li>
-                    <Link to="cast">Cast</Link>
-                </li>
-                <li>
-                    <Link to="reviews">Reviews</Link>
-                </li>
-   </ul>
+            <MovieDetails movieDetails={movieDetails} />
+         
             <Outlet/>
         </div>
     )

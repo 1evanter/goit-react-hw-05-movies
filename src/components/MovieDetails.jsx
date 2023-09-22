@@ -1,9 +1,18 @@
-const MovieDetails = () => {
+const MovieDetails = ({ movieDetails }) => {
+    // const { title, overview, poster_path, vote_average, genres } = movieDetails;
+
     return (
         <div>
-            <h1>тут типа название будет</h1>
-            <div>тут типа фотка будет</div>
-        </div>
+            {/* <img src={poster_path} alt={title} />
+            <h2>{title}</h2>
+            <p>{ vote_average}</p>
+            <p>{overview}</p>
+            <ul>{genres.map(({ id, name }) => {
+                return (
+                    <li key={id}>{name}</li>
+                )
+            })}</ul> */}
+       </div>
         
     )
 }
