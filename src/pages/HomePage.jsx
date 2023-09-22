@@ -4,29 +4,32 @@ import TrendingMovies from "components/TrendingMovies";
 
 const HomePage = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
-    // const [, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
         async function getTrendingMovies() {
             try {
-                // setLoading(true);
+                setLoading(true);
                 const movies = await fetchMovies();
                 setTrendingMovies(movies);
             } catch (error) {
                 console.log(error)
             }
-        //  finally {
-        //          setLoading(false);
-        //     }
+         finally {
+                 setLoading(false);
+            }
         }
     
         getTrendingMovies();
     }, []);
 
     return (
-        <TrendingMovies movies={trendingMovies} />
+        
+            loading ? (
+          <div>LOADING...</div>
+      ) : (<TrendingMovies movies={trendingMovies} />)   
     )
-}
+    }
 
 export default HomePage;
