@@ -1,18 +1,31 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { fetchMovies } from "api";
+import TrendingMovies from "components/TrendingMovies";
 
 const HomePage = () => {
+    const [trendingMovies, setTrendingMovies] = useState([]);
+    // const [, setLoading] = useState(false);
+
+
+    useEffect(() => {
+        async function getTrendingMovies() {
+            try {
+                // setLoading(true);
+                const movies = await fetchMovies();
+                setTrendingMovies(movies);
+            } catch (error) {
+                console.log(error)
+            }
+        //  finally {
+        //          setLoading(false);
+        //     }
+        }
+    
+        getTrendingMovies();
+    }, []);
+
     return (
-        <ul>Movies list
-            <li>
-            <Link to="movies/:movieId">movie 1</Link>
-            </li>
-            <li>
-            <Link to="movies/:movieId">movie 2</Link>
-            </li>
-            <li>
-            <Link to="movies/:movieId">movie 3</Link>
-            </li>     
-        </ul>
+        <TrendingMovies movies={trendingMovies} />
     )
 }
 
