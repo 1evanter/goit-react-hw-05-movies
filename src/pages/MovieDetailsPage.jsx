@@ -7,6 +7,7 @@ const MovieDetailsPage = () => {
         <div>
            <MovieDetails/>
             <ul>
+                Additional information
                 <li>
                     <Link to="cast">Cast</Link>
                 </li>
