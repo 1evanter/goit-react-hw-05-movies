@@ -11,31 +11,28 @@ useEffect(() => {
     if (!movieId) {
         return
     }
+
     async function getMoviesById() {
-try {
-    const movie = fetchMovieById(movieId);
-
-
+        try {
+    const movie = await fetchMovieById(movieId);
+console.log(movie)
+            
         if (movie.id) {
             setMovieDetails(movie)
-        }
-
+            }
+        
 } catch (error) {
     console.log(error)
-}
-
-        
- }
+}        
+    }
+    
     getMoviesById();
 }, [movieId])
-
-
 
     return (
 
         <div>
             <MovieDetails movieDetails={movieDetails} />
-         
             <Outlet/>
         </div>
     )
