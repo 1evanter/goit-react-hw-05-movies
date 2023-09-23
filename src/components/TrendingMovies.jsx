@@ -6,6 +6,7 @@ const TrendingMovies = ({ movies }) => {
 
     return (
         <ul>
+            <h1>Trending today</h1>
             {
                 movies.map(({id, title}) => {
                     return (
