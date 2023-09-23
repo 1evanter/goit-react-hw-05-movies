@@ -1,19 +1,25 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { List, Item, Image, StyledLink, Text } from './Movies.styled'
+
+const defaultImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
 
 const Movies = ({movies}) => {
     const location = useLocation();
 
     return (
         <div>
-            <ul>
-                {movies && movies.map(({id, title}) => {
+            <List>
+                {movies && movies.map(({id, title, poster_path}) => {
                     return (
-                        <li key={id}>
-                            <Link to={`${id}`} state={{ from: location }}>{title}</Link>
-                        </li>
+                        <Item key={id}>
+                            <StyledLink to={`movies/${id}`} state={{ from: location }}>
+                               <Image src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : defaultImage} alt={title} />
+                                <Text>{title}</Text>
+                                </StyledLink>
+                        </Item>
                     )
                 })}
-            </ul>
+            </List>
       </div>
     )
 }
