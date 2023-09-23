@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import { Loader } from "../Loader";
+import { GlobalStyles } from "components/GlobalStyles";
 
 const Layout = () => {
     return (
@@ -22,6 +23,7 @@ const Layout = () => {
                 <Outlet/>
                 </Suspense>
             </main>
+            <GlobalStyles/>
             </div>
     )
 }
