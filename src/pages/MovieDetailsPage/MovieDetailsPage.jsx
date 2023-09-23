@@ -1,6 +1,6 @@
 import MovieDetails from "components/MovieDetails/MovieDetails";
 import { useState, useEffect, Suspense } from "react";
-import { Outlet, useParams, Link } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { fetchMovieById } from "api";
 import { Loader } from "components/Loader";
 import { List, StyledLink } from "./MovieDetailsPage.styled";
