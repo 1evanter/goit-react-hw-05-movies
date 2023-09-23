@@ -1,9 +1,20 @@
-const Movies = () => {
+import { Link, useLocation } from "react-router-dom";
+
+const Movies = ({movies}) => {
+    const location = useLocation();
+
     return (
         <div>
-Search movie
-            <input type="text" />
-        </div>
+            <ul>
+                {movies && movies.map(({id, title}) => {
+                    return (
+                        <li key={id}>
+                            <Link to={`${id}`} state={{ from: location }}>{title}</Link>
+                        </li>
+                    )
+                })}
+            </ul>
+      </div>
     )
 }
 
