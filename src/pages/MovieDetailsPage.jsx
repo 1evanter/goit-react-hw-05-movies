@@ -1,6 +1,6 @@
 import MovieDetails from "components/MovieDetails";
 import { useState, useEffect } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams, Link } from "react-router-dom";
 import { fetchMovieById } from "api";
 
 const MovieDetailsPage = () => {
@@ -15,7 +15,6 @@ useEffect(() => {
     async function getMoviesById() {
         try {
     const movie = await fetchMovieById(movieId);
-console.log(movie)
             
         if (movie.id) {
             setMovieDetails(movie)
@@ -33,6 +32,11 @@ console.log(movie)
 
         <div>
             <MovieDetails movieDetails={movieDetails} />
+            <ul>
+                <li><Link to="cast">Cast</Link></li>
+                <li> <Link to="reviews">Reviews</Link></li>
+            </ul>
+
             <Outlet/>
         </div>
     )
