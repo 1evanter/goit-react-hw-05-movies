@@ -1,5 +1,5 @@
 import MovieDetails from "components/MovieDetails";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Outlet, useParams, Link } from "react-router-dom";
 import { fetchMovieById } from "api";
 
@@ -41,7 +41,9 @@ loading ? (<div>Loading...</div>) :
                 <li> <Link to="reviews">Reviews</Link></li>
             </ul>
 
-            <Outlet/>
+           <Suspense fallback={<div>Loading...</div>}>
+                <Outlet/>
+                </Suspense>
         </div>)
     )
 }
