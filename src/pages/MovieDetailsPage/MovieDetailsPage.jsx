@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense } from "react";
 import { Outlet, useParams, Link } from "react-router-dom";
 import { fetchMovieById } from "api";
 import { Loader } from "components/Loader";
+import { List, StyledLink } from "./MovieDetailsPage.styled";
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
@@ -37,10 +38,10 @@ useEffect(() => {
 loading ? (<Loader/>) : 
        ( <div>
             <MovieDetails movieDetails={movieDetails} />
-            <ul>
-                <li><Link to="cast">Cast</Link></li>
-                <li> <Link to="reviews">Reviews</Link></li>
-            </ul>
+            <List>
+                <li><StyledLink to="cast">Cast</StyledLink></li>
+                <li> <StyledLink to="reviews">Reviews</StyledLink></li>
+            </List>
 
            <Suspense fallback={<Loader/>}>
                 <Outlet/>
