@@ -15,12 +15,12 @@ const fetchMovieById = async movieId => {
 
 const fetchMovieCast = async movieId => {
   const response = await axios.get(`/3/movie/${movieId}/credits?api_key=${API_KEY}`);
-  return response.data;
+  return response.data.cast;
 }
 
 const fetchMovieReviews = async movieId => {
   const response = await axios.get(`/3/movie/${movieId}/reviews?api_key=${API_KEY}`);
-  return response.data;
+  return response.data.results;
 }
 
 const fetchMovieSearch = async query => {
