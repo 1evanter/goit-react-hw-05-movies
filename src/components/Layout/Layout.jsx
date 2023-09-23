@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { Loader } from "./Loader";
+import { Loader } from "../Loader";
 
 const Layout = () => {
     return (
