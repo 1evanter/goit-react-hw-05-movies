@@ -1,4 +1,4 @@
-import MovieDetails from "components/MovieDetails";
+import MovieDetails from "components/MovieDetails/MovieDetails";
 import { useState, useEffect, Suspense } from "react";
 import { Outlet, useParams, Link } from "react-router-dom";
 import { fetchMovieById } from "api";
