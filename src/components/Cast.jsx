@@ -16,7 +16,7 @@ useEffect(() => {
         try {
             const movieCast = await fetchMovieCast(movieId);
     
-                 setCast(movieCast.cast);
+                 setCast(movieCast);
           
        
     } catch (error) {
