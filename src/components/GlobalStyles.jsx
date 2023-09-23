@@ -3,6 +3,19 @@ import 'modern-normalize';
 
 export const GlobalStyles
     = createGlobalStyle`
+
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   color: #27374D;
     margin: 0;
@@ -21,17 +34,23 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 ul,
 ol {
-  margin: 0;
+ margin-top: 0;
+  margin-bottom: 0;
   padding: 0;
   list-style: none;
 };
 
 button {
   cursor: pointer;
+}
+
+a {
+    text-decoration: none;
 }
 `
