@@ -42,7 +42,7 @@ loading ? (<Loader/>) :
                 <li> <Link to="reviews">Reviews</Link></li>
             </ul>
 
-           <Suspense fallback={<div>Loading...</div>}>
+           <Suspense fallback={<Loader/>}>
                 <Outlet/>
                 </Suspense>
         </div>)

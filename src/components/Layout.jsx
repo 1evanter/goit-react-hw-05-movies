@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { Suspense } from "react";
+import { Loader } from "./Loader";
 
 const Layout = () => {
     return (
@@ -17,7 +18,7 @@ const Layout = () => {
             </nav>
             </header>
             <main>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader/>}>
                 <Outlet/>
                 </Suspense>
             </main>
