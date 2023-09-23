@@ -12,10 +12,7 @@ justify-content: start;
 const StyledLink = styled(NavLink)`
 font-weight: 500;
 font-size: 20px;
-
-&:visited {
-    color: inherit;
-}
+color: #27374D;
 
 &.active {
     color: #526D82;
