@@ -5,7 +5,8 @@ import { fetchMovieById } from "api";
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
-    const [movieDetails, setMovieDetails] = useState({})
+    const [movieDetails, setMovieDetails] = useState({});
+    const [loading, setLoading] = useState(true);
 
 useEffect(() => {
     if (!movieId) {
@@ -14,10 +15,12 @@ useEffect(() => {
 
     async function getMoviesById() {
         try {
+           
     const movie = await fetchMovieById(movieId);
             
         if (movie.id) {
-            setMovieDetails(movie)
+            setLoading(false);
+            setMovieDetails(movie);
             }
         
 } catch (error) {
@@ -28,9 +31,10 @@ useEffect(() => {
     getMoviesById();
 }, [movieId])
 
-    return (
 
-        <div>
+    return (
+loading ? (<div>Loading...</div>) : 
+       ( <div>
             <MovieDetails movieDetails={movieDetails} />
             <ul>
                 <li><Link to="cast">Cast</Link></li>
@@ -38,7 +42,7 @@ useEffect(() => {
             </ul>
 
             <Outlet/>
-        </div>
+        </div>)
     )
 }
 
