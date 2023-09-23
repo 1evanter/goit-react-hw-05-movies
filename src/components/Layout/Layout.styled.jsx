@@ -12,7 +12,7 @@ const Container = styled.div`
 const Header = styled.header`
   padding: 16px 0;
   margin-bottom: 30px;
-  border-bottom: 2px solid #27374D;
+  border-bottom: 2px solid #526D82;
   `
 
 const List = styled.ul`
