@@ -10,7 +10,7 @@ const fetchMovies = async () => {
 
 const fetchMovieById = async movieId => {
   const response = await axios.get(`/3/movie/${movieId}?api_key=${API_KEY}`);
-  return response.data.results;
+  return response.data;
 };
 
 export {fetchMovies, fetchMovieById}
