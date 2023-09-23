@@ -2,7 +2,7 @@ import Movies from "components/Movies"
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "api";
-import toast from "react-hot-toast";
+import toast, { Toaster } from 'react-hot-toast';
 import { Loader } from "components/Loader";
 const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -12,15 +12,19 @@ const MoviesPage = () => {
     const query = searchParams.get('query') ?? '';
 
     useEffect(() => {
-
+        if (!query) {
+            setLoading(false)
+      return setSearchMovies([]);
+    }
+     
         async function getSearchMovies() {
             try {
                 const movies = await fetchMovieSearch(query);
-
-                  if (!movies.length) {
-          toast.error('Sorry, nothing was found!', {
-            duration: 2000,
-          });
+                
+                if (!movies.length) {
+                    toast.error('Sorry, nothing was found!', {
+                        duration: 2000,
+                    });
                 };
                 setSearchMovies(movies); 
                 setLoading(false);
@@ -39,6 +43,8 @@ const getSearchQuery = evt => {
       toast.error('Fill in the search bar');
       return;
     }
+        const nextParams = searchQuery !== "" ? { query: searchQuery } : {};
+        setSearchParams(nextParams);
     
     setSearchParams({ query: searchQuery });
     evt.target.reset();
@@ -51,8 +57,9 @@ const getSearchQuery = evt => {
                 <input type="text"
         name="query"
         placeholder="Movie"
-                    required />
+                    />
                 <button type="submit">Submit</button>
+                <Toaster/>
             </form>
             {loading ? (<Loader/>) :
                 (<Movies movies={searchMovies} />)}
