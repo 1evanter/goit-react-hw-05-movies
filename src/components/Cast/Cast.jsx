@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { fetchMovieCast } from "api";
+import { List, Item, Text, Image } from "./Cast.styled";
+
+const defaultImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
 
 const Cast = () => {
 
@@ -29,19 +32,17 @@ useEffect(() => {
 
     return (
         <div>
-            <ul>
-                <h4>Cast</h4>
-                {cast.map(({ id, name, profile_path, character }) => (<li key={id}>
-                    {profile_path ? (<img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} alt={name} />) : (<div>ААААААА ФОТКИ НЕМА</div>)}
-                    
-                    <div>
-                        <p>{name}</p>
+            <List> 
+                {cast.map(({ id, name, profile_path, character }) => (<Item key={id}>
+                    <Image src={profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : defaultImage} alt={name} />
+                    <Text>
+                        <b>{name}</b>
                         <p>Character: {character}</p>
-                    </div>
-                    </li>)
+                    </Text>
+                    </Item>)
                 
                 )}
-            </ul>
+            </List>
         </div>
     )
 }
