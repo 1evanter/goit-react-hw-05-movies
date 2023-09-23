@@ -22,9 +22,14 @@ const StyledLink = styled(NavLink)`
 font-weight: 500;
 font-size: 16px;
 
+&:visited {
+    color: inherit;
+}
+
 &.active {
     color: green;
 }
+
 `
 
 export { Header, Container, List, StyledLink };
