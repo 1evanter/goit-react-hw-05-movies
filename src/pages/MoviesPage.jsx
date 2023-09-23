@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "api";
 import toast
     from "react-hot-toast";
+import { Loader } from "components/Loader";
 const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchMovies, setSearchMovies] = useState('');
@@ -54,7 +55,7 @@ const getSearchQuery = evt => {
                     required />
                 <button type="submit">Submit</button>
             </form>
-            {loading ? (<div>Loading...</div>) :
+            {loading ? (<Loader/>) :
                 (<Movies movies={searchMovies} />)}
         </div>
     )

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchMovies } from "api";
 import TrendingMovies from "components/TrendingMovies";
+import { Loader } from "components/Loader";
 
 const HomePage = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
@@ -27,7 +28,7 @@ const HomePage = () => {
     return (
         
             loading ? (
-          <div>LOADING...</div>
+          <Loader/>
       ) : (<TrendingMovies movies={trendingMovies} />)   
     )
     }

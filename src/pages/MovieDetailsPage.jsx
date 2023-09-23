@@ -2,6 +2,7 @@ import MovieDetails from "components/MovieDetails";
 import { useState, useEffect, Suspense } from "react";
 import { Outlet, useParams, Link } from "react-router-dom";
 import { fetchMovieById } from "api";
+import { Loader } from "components/Loader";
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
@@ -33,7 +34,7 @@ useEffect(() => {
 
 
     return (
-loading ? (<div>Loading...</div>) : 
+loading ? (<Loader/>) : 
        ( <div>
             <MovieDetails movieDetails={movieDetails} />
             <ul>
