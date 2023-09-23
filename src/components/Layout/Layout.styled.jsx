@@ -30,9 +30,8 @@ font-size: 16px;
 }
 
 &.active {
-    color: green;
+    color: #91C8E4;
 }
-
 `
 
 export { Header, Container, List, StyledLink };
