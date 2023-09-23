@@ -8,13 +8,15 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
-padding-top: 15px;
-padding-bottom: 15px;
-`
+  padding: 16px 0;
+  border-bottom: 1px solid black;
+  `
+
 const List = styled.ul`
 display: flex;
 gap: 15px;
 justify-content: start;
+ align-items: center;
 `
 const StyledLink = styled(NavLink)`
 font-weight: 500;
