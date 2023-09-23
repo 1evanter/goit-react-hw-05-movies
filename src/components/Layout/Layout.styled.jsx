@@ -6,12 +6,13 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 0px 20px;
   padding-bottom: 30px;
+  background-color: fff;
 `;
 
 const Header = styled.header`
   padding: 16px 0;
   margin-bottom: 30px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #27374D;
   `
 
 const List = styled.ul`
