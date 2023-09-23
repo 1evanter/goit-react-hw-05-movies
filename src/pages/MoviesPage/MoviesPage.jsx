@@ -1,4 +1,4 @@
-import Movies from "components/Movies"
+import Movies from "components/Movies/Movies"
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "api";
