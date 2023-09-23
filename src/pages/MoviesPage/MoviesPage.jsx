@@ -2,8 +2,7 @@ import Movies from "components/Movies"
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "api";
-import toast
-    from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Loader } from "components/Loader";
 const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
