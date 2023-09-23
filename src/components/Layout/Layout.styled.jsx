@@ -30,7 +30,7 @@ font-size: 16px;
 }
 
 &.active {
-    color: #91C8E4;
+    color: #526D82;
 }
 `
 
