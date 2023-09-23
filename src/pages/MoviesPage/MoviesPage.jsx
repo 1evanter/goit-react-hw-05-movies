@@ -4,6 +4,8 @@ import { useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "api";
 import toast, { Toaster } from 'react-hot-toast';
 import { Loader } from "components/Loader";
+import { Form, Input, Button } from "./MoviesPage.styled";
+
 const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchMovies, setSearchMovies] = useState('');
@@ -52,17 +54,17 @@ const getSearchQuery = evt => {
 
     return (
         <div>
-            <form onSubmit={getSearchQuery}
+            <Form onSubmit={getSearchQuery}
                 action="">
-                <input type="text"
+                <Input type="text"
         name="query"
-        placeholder="Movie"
+        placeholder="Search movie"
                     />
-                <button type="submit">Submit</button>
-                <Toaster/>
-            </form>
+                <Button type="submit">Search</Button>
+            </Form>
             {loading ? (<Loader/>) :
                 (<Movies movies={searchMovies} />)}
+                <Toaster/>
         </div>
     )
 }
