@@ -25,10 +25,7 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 padding: 10px;
-// text-align: center;
-// vertical-align: middle;
 font-weight: 500;
-// overflow: hidden;
 `
 
 const StyledLink = styled(Link)`
