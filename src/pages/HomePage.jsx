@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchMovies } from "api";
-import TrendingMovies from "components/TrendingMovies";
+import TrendingMovies from "components/TrendingMovies/TrendingMovies";
 import { Loader } from "components/Loader";
 
 const HomePage = () => {
