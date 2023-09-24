@@ -36,7 +36,7 @@ const MoviesPage = () => {
             }
         }
         getSearchMovies();
-    }, [query])
+    }, [query, setSearchParams])
 
 const getSearchQuery = evt => {
     evt.preventDefault();
