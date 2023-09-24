@@ -27,7 +27,7 @@ const MoviesPage = () => {
                     toast.error('Sorry, nothing was found!', {
                         duration: 2000,
                     });
-                    setSearchParams({})
+                    setSearchParams({});
                 };
                 setSearchMovies(movies); 
                 setLoading(false);
